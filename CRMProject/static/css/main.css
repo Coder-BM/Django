@@ -1,0 +1,14 @@
+
+body{
+  background-color: #9A616D; 
+}
+
+a{
+ color: white;
+ text-decoration: none;
+ outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

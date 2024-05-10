@@ -1,0 +1,127 @@
+{% include 'base/CDN.html' %}
+
+{% include 'base/header.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+
+<style>
+
+
+
+a{
+   color: white;
+   text-decoration: none;
+   outline: none;
+   
+ }
+
+ a:hover{
+  text-decoration: none;
+ }
+
+
+</style>
+
+<script>
+
+  setTimeout(function(){
+
+    location.reload();
+  
+  },30000);
+
+</script>
+
+  
+<section class="vh-100" style="background-color: #9A616D;" >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-12">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0 d-flex">
+              <div class="col-md-6 col-lg-5 d-none d-md-block flex-shrink-1">
+                <img src="{% static 'media/MR.jpg'%}"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;max-width:150%; height: 100%; width: 600px;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-3 text-black">
+                    <center><h1 style="font-size: large; border-radius: 0%; margin-top: 25px;"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 30px; color: red;"></i> Welcome {{request.user}}</h1></center>
+                    <br> <br>
+                    <center><h4 style="font-size: large; border-radius: 0%;"> Your Current Statistic  <i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 30px;"></i> </h4></center>
+                    <br> <br>
+
+                  <form action="{%url '/'%}">
+                    {% csrf_token %}
+
+                    <center>
+                      <a href="{% url 'view-doctor'%}">
+                        <div class="card text-light bg-success mb-3" style="max-width: 30rem; margin-right: -50px ; max-height: 30rem;">
+                            <!-- <div class="card-header">Doctor</div> -->
+                            <center><div class="card-body">
+                              <h5 class="card-title">Doctors Registered by You</h5>
+                              <p class="card-text">{{d_objects}}</p>
+                            </div>
+                            </center>
+                            
+                        </div>
+                      </a>    
+                      
+
+                        <a href="{% url 'view-product'%}">
+                        <div class="card text-light bg-warning mb-3" style="max-width: 30rem; margin-right: -50px ; max-height: 30rem;">
+                            <!-- <div class="card-header">Header</div> -->
+                            <center>
+                            <div class="card-body">
+                              <h5 class="card-title">Product Registered by You</h5>
+                              <p class="card-text">{{objects}}</p>
+                            </div>
+                            </center>
+                            </div>
+                        </a>
+   
+                        <a href="{% url 'view-appointment'%}">
+                        <div class="card text-light bg-info mb-3" style="max-width: 30rem; margin-right: -50px ; max-height: 30rem;">
+                                <!-- <div class="card-header">Header</div> -->
+                            <center>
+                            <div class="card-body">
+                            <h5 class="card-title">Appointments Scheduled by You</h5>
+                            <p class="card-text">{{app_objects}}</p>
+                            </div>
+                            </center>
+                        </div>
+                      </a>    
+
+                        <a href="{% url 'view-deals'%}">
+                        <div class="card text-light bg-danger mb-3" style="max-width: 30rem; margin-right: -50px ; max-height: 30rem;">
+                                  <!-- <div class="card-header">Header</div> -->
+                            <center>
+                            <div class="card-body">
+                            <h5 class="card-title">Doctor Deals Cracked by You</h5>
+                            <p class="card-text">{{deal_objects}}</p>
+                            </div>
+                            </center>
+                            </div> 
+                        </a>       
+
+
+                    </center>
+
+                        <br><br>
+
+                
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock  %}

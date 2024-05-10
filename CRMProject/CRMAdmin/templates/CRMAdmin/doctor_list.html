@@ -1,0 +1,57 @@
+{% include 'base/CDN.html' %}
+
+{% include 'CRMAdmin/header.html' %}
+
+{% block content %}
+
+
+<br>
+<center>
+
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Appointments Done By: {{user_name}}</h1>
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Month: {{select_month}}</h1>
+
+</center>
+
+<br> <br>
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+       
+            <th scope="col">Sr No</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Date Of Meeting</th>
+            <th scope="col">Time</th>
+            <th scope="col">Entered by</th>
+            
+          </tr>
+    </thead>
+
+  
+
+  <tbody>
+    {% for i in appointment %}
+    
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.Doctor_name}}</td>
+        <td>{{i.Booking_schedule}}</td>
+        <td>{{i.Booking_time}}</td>
+        <td>{{i.entered_by}}</td>
+
+        
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+<center>
+<h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> Product Count: {{appointment_count}}</h3>
+</center>
+
+
+{% endblock  %}

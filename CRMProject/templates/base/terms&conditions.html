@@ -1,0 +1,72 @@
+
+{% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'success' %}
+      <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss = "alert" aria-label="Close"></button>
+        <strong>{{message}}</strong>
+      </div>
+
+      {% else %}
+      <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss = "alert" aria-label="Close"></button>
+        <strong>{{message}}</strong>
+    </div>
+    
+    {% endif %}
+
+
+  {% endfor %}
+
+{% endif %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terms and Conditions</title>
+  <style>
+    body{
+        background-color:#9A616D;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Terms and Conditions</h1>
+
+  <p>Welcome to our website. These terms and conditions outline the rules and regulations for the use of our website.</p>
+
+  <h2>1. Acceptance of Terms</h2>
+  <p>By accessing and using this website, you accept and agree to be bound by the terms and conditions outlined here.</p>
+
+  <h2>2. Intellectual Property Rights</h2>
+  <p>The content and materials on this website are protected by intellectual property laws. You may not copy, reproduce, or distribute any of the content without our prior written consent.</p>
+
+  <h2>3. User Responsibilities</h2>
+  <p>When using this website, you agree to:</p>
+  <ul>
+    <li>Provide accurate and complete information</li>
+    <li>Respect the intellectual property rights of others</li>
+    <li>Not engage in any illegal or unauthorized activities</li>
+  </ul>
+
+  <h2>4. Disclaimer</h2>
+  <p>We make no warranties or representations about the accuracy or completeness of the content on this website. Your use of the website is at your own risk.</p>
+
+  <h2>5. Limitations of Liability</h2>
+  <p>We shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your use or inability to use this website.</p>
+
+  <h2>6. Modifications</h2>
+  <p>We reserve the right to modify or replace these terms and conditions at any time. Please review this page periodically for any changes.</p>
+
+  <h2>7. Governing Law</h2>
+  <p>These terms and conditions shall be governed by and construed in accordance with the laws of [Your Jurisdiction].</p>
+
+  <p>If you have any questions about these terms and conditions, please contact us.</p>
+</body>
+</html>
+{% endblock  %}

@@ -1,0 +1,52 @@
+{% include 'base/CDN.html' %}
+{% include 'base/header.html' %}
+
+{% block content %}
+
+
+<br>
+<center>
+
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Appointment Details</h1>
+
+</center>
+
+<br> <br>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       
+        <th scope="col">Sr No</th>
+        <th scope="col">Doctor Name</th>
+        <th scope="col">Booking Date</th>
+        <th scope="col">Booking Time</th>
+        <th scope="col">Entered By</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+  
+  <tbody>
+    {% for i in objects %}
+    
+   
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.Doctor_name.doc_name}}</td>
+        <td>{{i.Booking_schedule}}</td>
+        <td>{{i.Booking_time}}</td>
+        <td>{{i.entered_by}}</th>
+        <td>
+          <a href="{% url 'edit-appointment' i.id%}" data-id="{{i.id}}" ><i class="fa fa-edit" aria-hidden="true" style="color: green; font-size: 25px;"></i></a>
+          <a href="{% url 'delete-appointment' i.id%}" data-id="{{i.id}}" onclick="return confirm('Do you want to delete this record?')"><i class="fa fa-trash" aria-hidden="true" style="color: red; font-size: 25px;"></i></a>
+        
+        </td>
+        
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock  %}

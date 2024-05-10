@@ -1,0 +1,59 @@
+{% include 'base/CDN.html' %}
+
+{% include 'CRMAdmin/header.html' %}
+
+{% block content %}
+
+
+<br>
+<center>
+
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Deals By: {{user_name}}</h1>
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Month: {{choose_month}}</h1>
+
+</center>
+
+<br> <br>
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+       
+            <th scope="col">Sr No</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Quantity</th>
+            <th scope="col">Product Order Date</th>
+            <th scope="col">Entered By</th>
+            
+          </tr>
+    </thead>
+
+  
+
+  <tbody>
+    {% for i in deal %}
+    
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.Doc_name}}</td>
+        <td>{{i.Prod_name}}</td>
+        <td>{{i.Quantity_Ordered}}</td>
+        <td>{{i.Date_of_order}}</td>
+        <td>{{i.entered_by}}</td>
+
+        
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+<center>
+<h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> Product Count: {{deal_count}}</h3>
+</center>
+
+
+{% endblock  %}

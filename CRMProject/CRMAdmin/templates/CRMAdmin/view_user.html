@@ -1,0 +1,64 @@
+{% include 'base/CDN.html' %}
+
+{% include 'CRMAdmin/header.html' %}
+
+{% block content %}
+
+
+<br>
+<center>
+
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">User Details</h1>
+
+</center>
+
+<br> <br>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       
+        <th scope="col">Sr No</th>
+        <th scope="col">User First Name</th>
+        <th scope="col">User Last Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date Of Joining</th>
+        <th scope="col">Is Superuser</th>
+        <th scope="col">Status</th>
+        <th scope="col">Last Login</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+
+  
+
+  <tbody>
+    {% for i in objects %}
+    
+  
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.username}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.date_joined}}</td>
+        <td>{{i.is_superuser}}</td>
+        <td>{{i.is_active}}</td>
+        <td>{{i.last_login}}</td>
+        
+        <td>
+          <a href="{% url 'edit-user' i.id%}" data-id="#"><i class="fa fa-edit" aria-hidden="true" style="color: green; font-size: 25px;"></i></a>
+          <a href="{% url 'delete-user' i.id%}" data-id="{{i.id}}" onclick="return confirm('Do you want to delete this record?')"><i class="fa fa-trash" aria-hidden="true" style="color: red; font-size: 25px;"></i></a>
+        
+        </td>
+        
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock  %}

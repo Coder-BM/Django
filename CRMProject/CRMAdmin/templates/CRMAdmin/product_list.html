@@ -1,0 +1,51 @@
+{% include 'base/CDN.html' %}
+
+{% include 'CRMAdmin/header.html' %}
+
+{% block content %}
+
+
+<br>
+<center>
+
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Product Details</h1>
+
+</center>
+
+<br> <br>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       
+        <th scope="col">Sr No</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Product Image</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Entered By</th>
+      </tr>
+    </thead>
+
+  
+
+  <tbody>
+    {% for i in products %}
+    
+  
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.Product_name}}</td>
+        <td>{{i.company_name}}</td>
+        <td><img src="{{ i.image.url }}" alt="" width="90" height="90"></td>
+        <td>{{i.price}}</td>
+        <td>{{i.entered_by}}</th>
+        
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock  %}
