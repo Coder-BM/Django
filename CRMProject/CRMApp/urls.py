@@ -48,7 +48,6 @@ urlpatterns = [
     path('delete-deal/<int:id>',views.deal_delete,name='delete-deal'),
     path('edit-deal/<int:id>',views.deal_edit,name='edit-deal'),
 
-    # path("login",MyLogin.as_view(template_name='base/login.html'),name='login'),
 
 
 ]

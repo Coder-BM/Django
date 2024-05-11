@@ -14,8 +14,6 @@ urlpatterns = [
     #For product
     path("add-product-admin",views.add_product_admin,name='add-product-admin'),
     path('view-all-product',views.view_all_product,name='view-all-product'),
-    # path('delete-all-product/<int:id>',views.all_prod_delete,name='delete-all-product'),
-    # path('edit-all-product',views.all_prod_edit,name='edit-all-product'),
     path('product_list', views.prod_list, name='product_list'),
 
 

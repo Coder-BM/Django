@@ -31,32 +31,13 @@ class AppointmentForm(forms.ModelForm):
                                        widget=forms.TimeInput(attrs={'placeholder': 'HH-MM-SS'}))
     
 class ScheduleForm(forms.Form):
-    # date_select = forms.ModelChoiceField(queryset=Appointment.objects.all(),empty_label="Select Date")
     date_select = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     
 class DealsForm(forms.ModelForm):
-    # Quantity_Ordered = forms.IntegerField(validators=[MinValueValidator(0)], widget=forms.NumberInput(attrs={'type': 'number'}))
-    # Date_of_order = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-
 
     class Meta:
         model = DealDetails
         fields = ['Doc_name','Prod_name','Quantity_Ordered','Date_of_order']
-
-        # def __init__(self, *args, **kwargs):
-        #     super().__init__(*args, **kwargs)
-        #     self.fields['Quantity_Ordered'].widget = forms.NumberInput(attrs={'type': 'number'})
-        #     self.fields['Quantity_Ordered'].validators.append(MinValueValidator(0))
-        #     self.fields['Date_of_order'].widget = forms.DateInput(attrs={'type': 'date'})
-        # # widgets = {
-        # #     'Quantity_Ordered': forms.NumberInput(attrs={'type': 'number'}),
-        # #     'Date_of_order': forms.DateInput(attrs={'type': 'date'}),
-        # # }
-        # # validators = {
-        # #     'Quantity_Ordered': [MinValueValidator(0)],
-        # # }
-
-
 
     Quantity_Ordered = forms.IntegerField(widget=forms.NumberInput(attrs={'type':'number'}))
     Date_of_order = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))

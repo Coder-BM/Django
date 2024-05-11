@@ -31,27 +31,6 @@ from django.utils.html import strip_tags
 def forgot_pass(request):
     return render(request,"base/Fgpwd.html")
 
-# def send_email(request):
-#     if request.method == 'POST':
-#         email = request.POST['email']
-#         if User.objects.filter(email=email).exists():
-#             user = User.objects.get(email=email)
-#             uid = urlsafe_base64_encode(force_bytes(user.pk))
-#             token = default_token_generator.make_token(user)
-#             PasswordResetToken.objects.create(user=user,token=token)
-#             current_site=get_current_site(request)
-#             reset_url = f"http://{current_site.domain}/reset-password/{uid}/{token}/"
-#             subject = 'Password Reset Request'
-#             message = render_to_string('base/password_reset_email.html',{'user':user,'reset_url':reset_url})
-#             from_email = 'blavmir@gmail.com'
-#             to_email = [email]
-#             send_mail(subject,message,from_email,to_email)
-#             messages.success(request,"Email sent successfully!!")
-#             return render(request,'base/Fgpwd.html')
-#         else:
-#             messages.error(request,"Not a registered email id!!")
-#     return render(request,'base/Fgpwd.html')
-
 def send_email(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -112,7 +91,7 @@ class logout(LogoutView):
 
 
 #Product
-# @login_required
+
 def add_product(request):
     if request.method == "GET":
         pf = ProductFrom()
@@ -258,9 +237,6 @@ def app_edit(request,id):
         return render(request,"base/edit_appointment.html",{'pf':pf})
 
 # Schedule
-#Ask Sir
-#Error TypeError at /schedule
-#fromisoformat: argument must be str
 def schedule_list(request):
     if request.method =="GET":
         form = ScheduleForm()
@@ -276,46 +252,6 @@ def schedule_list(request):
         else:
             return render(request,"base/schedule_form.html",{'form':form})
         
-# def schedule(request):
-    
-#     if request.method == "GET":
-#         pf = ScheduleForm()
-#         d = {'pf':pf}
-#         return render(request,"base/schedule.html",d)
-    
-#     if request.method == "POST":
-#         pf = ScheduleForm(request.POST)
-#         if pf.is_valid():
-#             # sch = pf.save()
-#             select_date = pf.cleaned_data.get['Date_Selector']
-#             user = request.user
-#             # appointment = TodaysSchedule.objects.filter(Date_Selector__Booking_schedule=select_date,Date_Selector__entered_by =user)
-#             appointments = Appointment.objects.filter(
-#                 Booking_schedule=select_date, entered_by=user
-#             ).order_by('Booking_time')
-#             d = {'appointments':appointments,'select_date':select_date,'user':user}
-#             return render(request,"base/schedule_doctor.html",d)
-#         return render(request, "base/schedule.html", {'pf': pf})
-#         # else:
-#         #     messages.error(request,"Some Error")
-#         #     d = {'pf':pf}
-#         #     return render(request,"base/schedule.html",d)
-
-# # def view_schedule(request):
-# #     user = request.user
-# #     if request.method == "GET":
-# #         pf = ScheduleForm(request.GET)
-# #         if pf.is_valid():
-# #             select_date = pf.cleaned_data['Date_Selector']
-# #             appointment = Appointment.objects.filter(Booking_schedule=select_date,entered_by =user)
-# #             d = {'appointment':appointment,'select_date':select_date}
-# #             return render(request,"base/schedule_doctor.html",d)
-# #         else:
-# #             pf = ScheduleForm()
-# #             d = {'pf':pf}
-# #             return render(request,"base/schedule_doctor.html",d)
-
-
 
 #Deals
 

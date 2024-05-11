@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-# @login_required
+
 def djadmin(request):
     pro = Product.objects.all().count()
     doc = Doctor.objects.all().count()
@@ -91,7 +91,7 @@ def edit_user(request,id):
     
 
 #Product
-# @login_required
+
 def add_product_admin(request):
     if request.method == "GET":
         pf = ProductFromAdmin()
@@ -119,13 +119,9 @@ def view_all_product(request):
     d = {'objects':b}
     return render(request,"CRMAdmin/add_product_display.html",d)
 
-# def all_prod_delete(request,id):
-#     a = Product.objects.get(id=id)
-#     a.delete()
-#     messages.success(request,"Product Deleted Successfully.")
-#     return redirect(view_all_product)
 
-# def all_prod_edit(request):
+
+def all_prod_edit(request):
     a = Product.objects.all()
     if request.method == "POST":
         pf = ProductFromAdmin(request.POST,request.FILES,instance=a)
